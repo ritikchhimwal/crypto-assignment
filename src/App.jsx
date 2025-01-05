@@ -44,7 +44,7 @@ const App = () => {
           style={{ marginBottom: "10px" }}
         />
         <button onClick={sortByMarketCap}>Sort By Mkt Cap</button>
-        <button onClick={sortByPercentageChange}>Sort by %tage</button>
+        <button onClick={sortByPercentageChange}>Sort by percentage</button>
       </div>
 
       <table>
