@@ -7,13 +7,17 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isAsync, setIsAsync] = useState(true);
 
-  useEffect(() => {
-    if (isAsync) {
-      fetchDataWithAsyncAwait().then(data => setCryptoData(data));
-    } else {
-      fetchDataWithThen().then(data => setCryptoData(data));
-    }
-  }, [isAsync]);
+useEffect(() => {
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
+  if (isAsync) {
+    fetchDataWithAsyncAwait().then(data => setCryptoData(shuffleArray(data)));
+  } else {
+    fetchDataWithThen().then(data => setCryptoData(shuffleArray(data)));
+  }
+}, [isAsync]);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
